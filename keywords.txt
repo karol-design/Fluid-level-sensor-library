@@ -1,0 +1,27 @@
+#######################################
+# Syntax Coloring Map For Fluid_level_sensor library
+#######################################
+# Class
+#######################################
+
+Fluid_level_sensor	KEYWORD1
+
+#######################################
+# Methods and Functions
+#######################################	
+
+measureDistance	KEYWORD2
+getDistance	KEYWORD2
+createMessage	KEYWORD2
+
+#######################################
+# Constants
+#######################################
+
+SMTP_HOST	LITERAL1
+SMTP_PORT	LITERAL1
+AUTHOR_EMAIL	LITERAL1
+AUTHOR_PASSWORD	LITERAL1
+BUTTON	LITERAL1
+LED	LITERAL1
+
