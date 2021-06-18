@@ -3,6 +3,7 @@
  * Description: The code aim is to test core functionalities of the device (measuring distance and sending mails)
 */
 
+#include "Freenove_WS2812_Lib_for_ESP32.h" // WS2812 RGB LED library
 #include <Fluid_level_sensor.h> // Fluid level sensor library
 #include <ESP_Mail_Client.h>    // ESP Mail sending/receiving library
 #include <WiFi.h>               // ESP WiFi library
@@ -14,20 +15,27 @@
 
 Fluid_level_sensor device;  // Fluid level sensor object
 SMTPSession smtp;           // The SMTP Session object used for Email sending
+Freenove_ESP32_WS2812 strip = Freenove_ESP32_WS2812(1, WS2812_PIN, 0, TYPE_GRB); // WS2812 RGB LED object
 
 
 /* ---------------------------------------- Setup ---------------------------------------- */
 void setup() {
   Serial.begin(115200);
+  strip.begin(); // WS2812 RGB LED initialised
+	strip.setBrightness(45);
 
   /* Try to connect to WiFi access point */
   Serial.print("\nConnecting to WiFi access point (AP).");
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
   while (WiFi.status() != WL_CONNECTED){
     Serial.print(".");
+    strip.setLedColorData(0, 255, 0, 0);
+		strip.show();
     delay(200);
   }
   
+  strip.setLedColorData(0, 100, 0, 250);
+	strip.show();
   Serial.print("\n\nWiFi connected.\nIP address: ");
   Serial.print(WiFi.localIP());
   Serial.print("\nWiFi signal strength: ");
@@ -69,6 +77,8 @@ void loop() {
   message.html.transfer_encoding = Content_Transfer_Encoding::enc_7bit;
 
   if(digitalRead(BUTTON) == LOW) {
+    strip.setLedColorData(0, 250, 250, 250);
+	  strip.show();
     digitalWrite(LED, HIGH);
     /* Connect to server with the session config */
     if (!smtp.connect(&session))
@@ -78,5 +88,7 @@ void loop() {
     if (!MailClient.sendMail(&smtp, &message))
       Serial.println("Error sending Email, " + smtp.errorReason());
     digitalWrite(LED, LOW);
+    strip.setLedColorData(0, 100, 0, 250);
+	  strip.show();
   }
 }

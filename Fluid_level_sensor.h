@@ -10,8 +10,9 @@
 #include <Arduino.h> // Include standard Arduino header file
 
 /* Board IO pins in use definition */
-#define BUTTON 27  // Button on GPIO 27
-#define LED 2     // Blue built-in LED on GPIO 2
+#define BUTTON 27     // Button on GPIO 27
+#define LED 2         // Blue built-in LED on GPIO 2
+#define WS2812_PIN 5  // RGB WS2812 LED on GPIO 5
 
 /* Distance measurement sensor (HC-SR04) macro definitions */
 #define TRIG_PIN 25
