@@ -1,7 +1,7 @@
 /*  Name: Fluid_level_sensor.h
  *  Description: IoT Fluid level sensor based on ESP32 and HC-SR04 | Device library
  *  Author: Karol Wojsław
- *  Date: 16/06/2021 (last release)
+ *  Date: 18/06/2021 (last release)
  */
 
 #ifndef Fluid_level_sensor_h
@@ -10,12 +10,12 @@
 #include <Arduino.h> // Include standard Arduino header file
 
 /* Board IO pins in use definition */
-#define BUTTON 0  // Button on GPIO 0
+#define BUTTON 27  // Button on GPIO 27
 #define LED 2     // Blue built-in LED on GPIO 2
 
 /* Distance measurement sensor (HC-SR04) macro definitions */
-#define TRIG_PIN 12
-#define ECHO_PIN 14
+#define TRIG_PIN 25
+#define ECHO_PIN 26
 #define N_MEASUREMENTS 10
 #define MIN_DISTANCE 2.0
 #define MAX_DISTANCE 200.0
@@ -24,7 +24,7 @@
 #define SMTP_HOST "smtp.gmail.com" // SMTP host adress for Gmail
 #define SMTP_PORT 465              // SMTP port for Gmail SSL connection
 #define AUTHOR_EMAIL "esp32.karol@gmail.com" // Email adress of the sender (! less secure app option should be enabled)
-#define AUTHOR_PASSWORD "Wojslaw007"         // Password to the sender account
+#define AUTHOR_PASSWORD "TestESP1234"        // Password to the sender account
 
 
 class Fluid_level_sensor {

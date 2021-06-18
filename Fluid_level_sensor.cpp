@@ -1,7 +1,7 @@
 /*  Name: Fluid_level_sensor.cpp
  *  Description: IoT Fluid level sensor based on ESP32 and HC-SR04 | Device library
  *  Author: Karol Wojsław
- *  Date: 16/06/2021 (last release)
+ *  Date: 18/06/2021 (last release)
  */
 
  #include "Fluid_level_sensor.h" // Library header file
@@ -14,7 +14,10 @@ Fluid_level_sensor::Fluid_level_sensor() {
   pinMode(LED, OUTPUT);
   pinMode(TRIG_PIN, OUTPUT);
   pinMode(ECHO_PIN, INPUT);
-  pinMode(BUTTON, INPUT);
+  pinMode(BUTTON, INPUT_PULLUP);
+
+  /* Set outputs states at startup */
+  digitalWrite(LED, LOW);
 }
 
 
