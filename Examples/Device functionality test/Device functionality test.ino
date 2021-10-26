@@ -9,7 +9,7 @@
 #include <WiFi.h>               // ESP WiFi library
 
 #define WIFI_SSID "TP_LINK_7522"        // WiFi SSID (name)
-#define WIFI_PASSWORD "TwojaStara7522"  // WiFi password
+#define WIFI_PASSWORD "###"  // WiFi password
 
 #define RECIPIENT_EMAIL "wojslaw.tech@gmail.com" // Email adress of the receipient
 
